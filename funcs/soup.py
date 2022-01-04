@@ -15,13 +15,14 @@ def getStockPrice(stocks, stocksPrice, running):
                 html = requests.get(url)
                 soup = BeautifulSoup(html.content, "html.parser")
                 main_div = soup.find('bg-quote', attrs = {'class':'value'})
+                sign = soup.find('sup', attrs = {'class':'character'}).text
                 try:
-                    stocksPrice[i] = main_div.text
+                    stocksPrice[i] = (sign if sign else '') + main_div.text
                 except:
-                    stocksPrice[i] = "Error in getting stock price"
+                    stocksPrice[i] = "Error"
                 #i'm afraid of sending too many requests too quickly and being flagged as a DDoS attacker :/
                 #time.sleep(1)
-            time.sleep(2)
+            time.sleep(1.5)
         except IndexError:
             pass
         except:
