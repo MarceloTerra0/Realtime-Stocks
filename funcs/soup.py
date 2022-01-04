@@ -19,7 +19,6 @@ def getStockPrice(stocks, stocksPrice, running):
                     stocksPrice[i] = main_div.text
                 except:
                     stocksPrice[i] = "Error in getting stock price"
-                print(stocksPrice)
                 #i'm afraid of sending too many requests too quickly and being flagged as a DDoS attacker :/
                 #time.sleep(1)
             time.sleep(2)

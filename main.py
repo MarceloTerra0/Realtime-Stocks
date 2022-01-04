@@ -35,8 +35,6 @@ def main():
         if last_selected:
             window['-STOCK-'].update(stocksPrice[stocks.index(last_selected)])
 
-        # IMPORTANT step. It's not required, but convenient. Set event to value from tray
-        # if it's a tray event, change the event variable to be whatever the tray sent
         if event == tray.key:
             event = values[event]       # use the System Tray's event as if was from the window
             
@@ -68,7 +66,7 @@ def main():
                 window['-STOCK-'].update(stocksPrice[stocks.index(values['-LIST-'][0])])
                 last_selected = values['-LIST-'][0]
 
-    tray.close()            # optional but without a close, the icon may "linger" until moused over
+    tray.close()
     window.close()
     running = False
     p1.join()
