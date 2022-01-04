@@ -20,9 +20,6 @@ def getStockPrice(stocks, stocksPrice, running):
                     stocksPrice[i] = (sign if sign else '') + main_div.text
                 except:
                     stocksPrice[i] = "Error"
-                #i'm afraid of sending too many requests too quickly and being flagged as a DDoS attacker :/
-                #time.sleep(1)
-            time.sleep(1.5)
         except IndexError:
             pass
         except:
